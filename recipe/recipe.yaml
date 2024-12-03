@@ -1,17 +1,17 @@
-{% set name = "pickles" %}
-{% set version = "4.0.3" %}
+context:
+  version: 4.0.3
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: pickles
+  version: ${{ version }}
 
 source:
-  url: https://github.com/picklesdoc/pickles/archive/v{{ version }}.tar.gz
+  url: https://github.com/picklesdoc/pickles/archive/v${{ version }}.tar.gz
   sha256: ab84fe00be6f864543716a2d05f86bd328e7a3f667754999df364237a0c2ba3c
 
 build:
-  noarch: generic
   number: 0
+  noarch: generic
 
 requirements:
   host:
@@ -21,18 +21,18 @@ requirements:
   run:
     - dotnet
 
-test:
-  commands:
-    - pickles --help
+tests:
+  - script:
+      - pickles --help
 
 about:
-  home: https://github.com/picklesdoc/pickles
   license: Apache-2.0
   license_file:
     - LICENSE.txt
     - license-files/
   summary: The open source living documentation generator
-  dev_url: https://github.com/picklesdoc/pickles
+  homepage: https://github.com/picklesdoc/pickles
+  repository: https://github.com/picklesdoc/pickles
 
 extra:
   recipe-maintainers:
