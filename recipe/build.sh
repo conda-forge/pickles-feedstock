@@ -28,3 +28,5 @@ EOF
 
 # Download dependency licenses wtih dotnet-project-licenses
 dotnet-project-licenses --input src/Pickles.CommandLine/Pickles.CommandLine.csproj -t -d license-files
+
+rm ${PREFIX}/bin/dotnet
